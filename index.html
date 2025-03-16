@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+* {
+    height: auto;
+    width: auto;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* width: 100vw; */
+    margin: 0; 
+    background: #ece3e3;
+    transition: background 0.3s, color 0.3s;
+}
+.container{
+  
+    background-color: #fcf6f6;
+
+    width: 400px;
+    border: 15px;
+    padding: 40px; 
+}
+.display input{
+    width: 100%;
+    height: 60px;
+    font-size: 2em;
+    text-align: right;
+    border: none;
+    background: #858484;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+}
+.button{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin-top: 10px;
+    /* border: radius 5px;  */
+}
+button{
+    height: 60px;
+
+    font-size: 1.5em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    /* border: radius 5px;  */
+
+}
+button:active{
+    background-color: #555;
+}
+.gray{
+    background-color:gray;
+}
+.orange{
+    background-color: orange;
+    border-radius: 30px;
+}
+.zero{
+    grid-column: span 2;
+    background-color: #5e5d5d;
+    border-radius: 30px;
+}
+.circle{
+    /* border: 10px solid black;
+     */
+     width: 60px;
+     background-color: #4c4b4b;
+     border-radius:50%;
+     gap: 10;
+}
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+#darkModeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.dark-mode #darkModeBtn {
+    background: white;
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <button onclick="toggleDarkMode()" id="darkModeBtn">🌙 Dark Mode</button>
+        <div class="display">
+       <input type="text"id="result" value="0" disabled>
+        </div>
+        <div class="button">
+            <button class="gray" onclick="clearScreen()">AC</button>
+
+            <button onclick="deleteLast()" class="gray" id="ac">CLR</button>
+            <button onclick="appendValue('^')" class="gray">^</button>
+            <button onclick="appendValue('/')" class="orange">/</button>
+            <button onclick="appendValue('7')" class="circle">7</button>
+            <button onclick="appendValue('8')"  class="circle">8</button>
+            <button onclick="appendValue('9')"  class="circle">9</button>
+            <button onclick="appendValue('*')" class="orange">*</button>
+            <button onclick="appendValue('4')"  class="circle">4</button>
+            <button onclick="appendValue('5')"  class="circle">5</button>
+            <button onclick="appendValue('6')"  class="circle">6</button>
+            <button onclick="appendValue('-')"  class="orange" >-</button>
+            <button onclick="appendValue('1')"  class="circle">1</button>
+            <button onclick="appendValue('2')"  class="circle">2</button>
+             <button onclick="appendValue('3')"  class="circle">3</button>
+             <button onclick="appendValue('+')"  class="orange">+</button>
+            <button onclick="appendValue('0') " class="zero">0</button>
+             <button onclick="appendValue('.')"  class="circle">.</button>
+            <button onclick="calculate()" class="orange">=</button>
+        </div>
+
+        </div>
+     
+     <script src="cal.js"></script>
+    
+</body>
+</html>
